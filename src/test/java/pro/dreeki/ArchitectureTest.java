@@ -11,7 +11,7 @@ import java.util.Collections;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noMethods;
 
-@AnalyzeClasses(packages = "be.gekeurd")
+@AnalyzeClasses(packages = "pro.dreeki")
 public class ArchitectureTest {
 	private static final String DOMAIN_LAYER = "pro.dreeki.domain..";
 
