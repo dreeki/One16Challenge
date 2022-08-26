@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  db:
+    container_name: one16-challenge-db
+    image: postgres:12.6-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: developer
+      POSTGRES_PASSWORD: developer
+      POSTGRES_DB: One16_db
+      PGDATA: /tmp

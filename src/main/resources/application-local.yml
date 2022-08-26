@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/One16_db
+    username: developer
+    password: developer
+
+one16:
+  challenge:
+    loader:
+      enable: true

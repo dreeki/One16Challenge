@@ -1,0 +1,14 @@
+app:
+  name: One16 Challenge
+  description: ${app.name} is a Spring Boot application
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL82Dialect
+        ddl-auto: validate
+  flyway:
+    validateMigrationNaming: true

@@ -1,0 +1,4 @@
+one16:
+  challenge:
+    loader:
+      enable: false
