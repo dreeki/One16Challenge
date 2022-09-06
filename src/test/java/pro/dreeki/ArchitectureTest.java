@@ -23,7 +23,7 @@ public class ArchitectureTest {
 							PERSISTENCE_LAYER,
 							INIT_LAYER
 					)
-					.because("This conflicts with hexagonal architecture.");
+					.because("This conflicts with hexagonal architecture: Domain should not depend on other layers.");
 
 	@ArchTest
 	public static final ArchRule otherLayersShouldOnlyDependOnDomain =
@@ -33,5 +33,5 @@ public class ArchitectureTest {
 							INIT_LAYER
 					)
 					.should().onlyDependOnClassesThat().resideInAPackage(DOMAIN_LAYER)
-					.because("This conflicts with hexagonal architecture.");
+					.because("This conflicts with hexagonal architecture: Other layers should only depend on domain.");
 }
