@@ -6,7 +6,11 @@
 
 I chose to let the input data be inserted during the startup of the application, hence nothing is needed to insert the
 initial words.
-Adding words to the list can be done by an endpoint which you will discover while using the application
+
+Adding words to the list can be done by an endpoint which is added in the postman collection in the project root.
+The actual requested task has an endpoint, which is as well added in the postman collection.
+
+The entire application can be started by running `docker compose up` In the project root.
 
 ## Task
 
