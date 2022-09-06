@@ -2,16 +2,15 @@ package pro.dreeki.domain;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import pro.dreeki.AbstractTest;
 import pro.dreeki.persistence.dao.WordDAO;
 import pro.dreeki.persistence.entity.WordEntity;
 
 import java.util.List;
 import java.util.Map;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
-class WordServiceImplTest extends AbstractTest {
+class WordServiceImplBaseTest extends AbstractDomainTest {
 
 	private static final String FOOBAR = "foobar";
 	private static final String BARFOO = "barfoo";

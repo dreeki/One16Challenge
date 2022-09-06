@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -22,8 +21,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ActiveProfiles("unit")
 @ExtendWith(SpringExtension.class)
 @Testcontainers
-@ContextConfiguration(initializers = AbstractTest.DataSourceInitializer.class)
-public abstract class AbstractTest {
+@ContextConfiguration(initializers = AbstractBaseTest.DataSourceInitializer.class)
+public abstract class AbstractBaseTest {
 
 	@Autowired
 	private WordDAO wordDAO;
@@ -36,7 +35,7 @@ public abstract class AbstractTest {
 	private static final PostgreSQLContainer<?> DATABASE;
 
 	static {
-		DATABASE = new PostgreSQLContainer<>("postgres:12.6-alpine");
+		DATABASE = new PostgreSQLContainer<>("postgres:14-alpine");
 		DATABASE.start();
 	}
 

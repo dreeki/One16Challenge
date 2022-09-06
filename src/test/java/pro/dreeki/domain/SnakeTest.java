@@ -1,8 +1,8 @@
 package pro.dreeki.domain;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class SnakeTest {
 
@@ -17,6 +17,7 @@ class SnakeTest {
 				.addToFront(LEVEL_1)
 				.addToFront(TOP_LEVEL);
 
-		assertThat(snake.getSolution()).containsExactly(TOP_LEVEL, LEVEL_1, LEVEL_2);
+		assertThat(snake.getSolution())
+				.isEqualTo(String.format("%s+%s+%s=%s", TOP_LEVEL, LEVEL_1, LEVEL_2, TOP_LEVEL + LEVEL_1 + LEVEL_2));
 	}
 }

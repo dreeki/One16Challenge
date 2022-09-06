@@ -1,7 +1,6 @@
 package pro.dreeki.domain;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Objects;
 
 public class Snake {
@@ -11,13 +10,13 @@ public class Snake {
 		solution = new LinkedList<>();
 	}
 
-	public Snake addToFront(String word) {
+	Snake addToFront(String word) {
 		solution.addFirst(word);
 		return this;
 	}
 
-	public List<String> getSolution() {
-		return solution;
+	public String getSolution() {
+		return String.join("+", solution) + "=" + String.join("", solution);
 	}
 
 	@Override

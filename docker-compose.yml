@@ -11,3 +11,12 @@ services:
       POSTGRES_PASSWORD: developer
       POSTGRES_DB: One16_db
       PGDATA: /tmp
+  app:
+    container_name: one16-challenge-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - "SPRING_PROFILES_ACTIVE=docker-local"
+    ports:
+      - '8080:8080'

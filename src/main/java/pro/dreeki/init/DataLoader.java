@@ -3,12 +3,14 @@ package pro.dreeki.init;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 import pro.dreeki.domain.WordService;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.file.Path;
 import java.util.List;
 
@@ -25,8 +27,10 @@ class DataLoader implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) {
 		Path path = getPath();
-		try {
-			List<String> words = Files.readAllLines(path);
+		try (InputStream inputStream = new ClassPathResource(path.toString()).getInputStream();
+			 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+			 BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
+			List<String> words = bufferedReader.lines().toList();
 			wordService.addWords(words);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
@@ -34,10 +38,6 @@ class DataLoader implements ApplicationRunner {
 	}
 
 	private Path getPath() {
-		try {
-			return Path.of(getClass().getClassLoader().getResource("data/input.txt").toURI());
-		} catch (URISyntaxException e) {
-			throw new RuntimeException(e);
-		}
+		return Path.of("data", "input.txt");
 	}
 }
